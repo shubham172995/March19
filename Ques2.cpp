@@ -1,19 +1,19 @@
 #include<bits/stdc++.h>
+using namespace std;
 
-int digits(long long int n){
-	int ans=0;
-	while(n){
-		n=n/10;
-		++ans;
+int numberofdigits(long long int no){
+	int dig=0;
+	while(no){
+		no=no/10;
+		++dig;
 	}
-	return ans;
+	return dig;
 }
 
 long long int product(long long int n){
 	long long int p=1;
 	while(n){
-		int temp=n%10;
-		p=p*temp;
+		p=p*(n%10);
 		n=n/10;
 	}
 	return p;
@@ -21,12 +21,12 @@ long long int product(long long int n){
 
 int main(){
 	long long int n;
-	std::cin>>n;
+	cin>>n;
 	if(n<10){
-		std::cout<<n<<std::endl;
+		cout<<n<<endl;
 		return 0;
 	}
-	int dig=digits(n);
+	int dig=numberofdigits(n);
 	long long int temp=0;
 	for(int i=1;i<dig;i++)
 		temp=temp*10+9;
@@ -63,6 +63,6 @@ int main(){
 	if(temp>0)
 		ans=ans>product(temp)?ans:product(temp);
 	ans=ans>product(n)?ans:product(n);
-	std::cout<<ans<<std::endl;
+	cout<<ans<<endl;
 	return 0;
 }
